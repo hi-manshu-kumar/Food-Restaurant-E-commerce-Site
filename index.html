@@ -1,0 +1,184 @@
+<link rel="stylesheet" href="animate.css">
+
+<div id="menu">
+ <div class="categ"><!--yellow-->
+    <h1 class="animated flip">Menu Categories</h1><!--animate.css style-->
+    <div class="fa fa-shopping-cart" aria-hidden="true"><a href="table.html"><img src="img/basket.png" alt=""></a></div>
+  </div>
+  <ul class="products">
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/chicken_manchurian.jpg">
+      <h2>Manchurian
+      <hr>
+      $2.99</h2>
+      <button class="button button5 animated flip" item-id="1" product="Manchurian" amount="$2.99" data-src="img/chicken_manchurian.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/dan-gold.jpg">
+      <h2>Ham-Burger
+      <hr>
+      $1.99</h2>
+      <button class="button button5 animated flip" item-id="2" product="Ham-Burger" amount="$1.99" data-src="img/dan-gold.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/elli-o.jpg">
+      <h2>Dry Sizzler
+      <hr>
+      $3.99</h2>
+      <button class="button button5 animated flip" item-id="3" product="Pudding" amount="$3.99" data-src="img/elli-o.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/Fried-Rice.jpg">
+      <h2>Fried Rice
+      <hr>
+      $2.50</h2>
+      <button class="button button5" item-id="4" product="Fried Rice" amount="$2.50" data-src="img/elli-o.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/kazuend.jpg">
+      <h2>Kazuend
+      <hr>
+      $4.99</h2>
+      <button class="button button5" item-id="5" product="Kazuend" amount="$4.99" data-src="img/kazuend.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/noodles.jpg">
+      <h2>Chinese Noodles
+      <hr>
+      $3.99</h2>
+      <button  class="button button5" item-id="6" product="Chinese Noodles" amount="$3.99" data-src="img/noodles.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/pizza.jpg">
+      <h2>Spl. Pizza
+      <hr>
+      $5.99</h2>
+      <button class="button button5"  item-id="7" product="Spl. Pizza" amount="$5.99" data-src="img/pizza.jpg">Add to Cart</button>
+    </li>
+     <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/spring-rolls.jpg">
+      <h2>Spring rolls
+      <hr>
+      $2.99</h2>
+      <button class="button button5"  item-id="8" product="Spring rolls" amount="$2.99" data-src="img/spring-rolls.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/sushi.jpg">
+      <h2>Sushi
+      <hr>
+      $4.99</h2>
+      <button class="button button5"  item-id="9" product="Suchi" amount="$4.99" data-src="img/sushi.jpg">Add to Cart</button>
+    </li>
+     <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/moon-cake.jpg">
+      <h2>Moon Cake
+      <hr>
+      $6.99</h2>
+      <button class="button button5"  item-id="10" product="Moon Cake" amount="$6.99" data-src="img/moon-cake.jpg">Add to Cart</button>
+    </li>
+     <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/pudding.jpg">
+      <h2>Pudding
+      <hr>
+      $3.99</h2>
+      <button class="button button5" item-id="11" product="Pudding" amount="$3.99" data-src="img/pudding.jpg">Add to Cart</button>
+    </li>
+     <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="img/toa-heftiba.jpg">
+      <h2>Food Fantasy Spl.
+      <hr>
+      $8.99</h2>
+      
+      <button class="button button5" item-id="12" product="Food Fantasy Spl." amount="$8.99" data-src="img/toa-heftiba.jpg">Add to Cart</button>
+    </li>
+  </ul>
+  *Terms and Conditions Apply
+  </div>
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script>
+      
+    $("button").on("click", function(){
+        $(this).closest("li")
+         .find("img")
+         .clone()
+         .addClass("zoom")
+         .appendTo("body");
+        setTimeout(function(){
+         $("zoom").remove();
+        }, 1000);    
+    });
+      
+  </script>
+<!-- <script src="js/menu-crud.js"></script>-->
+
+<script >
+bindEvents();
+
+class Item{
+constructor(id,pic,product,amount,quantity){
+this.id=id;
+this.pic=pic;
+this.product = product;
+
+this.amount = amount;
+this.quantity =quantity;
+this.markForDelete = false;
+	
+}
+	toggleDelete(){
+		this.markForDelete = !this.markForDelete;
+	}
+}
+
+const itemOperations = {
+itemList:[],
+	
+addItem(id,pic,product,amount){
+	var itemObject = new Item(id,pic, product, amount);
+	this.itemList.push(itemObject);
+	
+}
+	
+}
+
+function bindEvents() {
+
+	console.log("bindEvent working");
+	
+	var bTags=document.getElementsByTagName('button');
+        
+	
+    for (var i=0;i<bTags.length;i++){
+        bTags[i].addEventListener("click",add);
+    }
+
+}
+
+function saveLocal() {
+	if(window.localStorage){
+		localStorage.myitemslist=JSON.stringify(itemOperations.itemList);
+		//alert("Data Store...");
+	}
+	else{
+		alert("Ur Browser Doesn't Support LocalStorage...");
+	}
+}
+
+function add(event){
+	//tr.classList.toggle("redrow");
+	var id = event.srcElement.getAttribute("item-id");
+	var product = event.srcElement.getAttribute("product");
+	var amount = event.srcElement.getAttribute("amount");
+	var pic= event.srcElement.getAttribute("data-src");
+
+    //alert("data added");
+    itemOperations.addItem(id,pic,product,amount);
+    
+    //saveLocal();
+    saveLocal();
+	//alert("Delete Call.... "+id);
+}
+
+</script>
+
+  

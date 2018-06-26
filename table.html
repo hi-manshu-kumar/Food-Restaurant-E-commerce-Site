@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food Fantasy</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    
+    <link rel="stylesheet" href="css/checkout.css">
+    <script src="js/item.js"></script>
+    <script src="js/itemOperations.js"></script>
+    <script src="js/controller.js"></script>
+</head>
+<body>
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="indextry.html" class="pull-left visible-md visible-lg">
+                        <div id="logo-img" alt="logo image"></div>
+                    </a>
+                    <div class="navbar-brand">
+                        <a href="indextry.html">
+                            <h1>Food Fantasy</h1>
+                        </a>
+                        <p>
+                            <img src="images/star-k-logo.png" alt="">
+                            <span>THE TRUE FLAVOURS OF INDIA</span>
+                        </p>
+                    </div>
+                    <button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="collapsable-nav" class="collapse navbar-collapse">
+                    <ul id="nav-list" class="nav navbar-nav navbar-right">
+                       <li class="visible-xs">
+                           <a href="indextry.html">
+                               <span class="glyphicon glyphicon-home"></span>Home
+                           </a>
+                       </li>
+                       <li>
+                            <a href="indextry.html">
+                                <!--menu-categories link-->
+                                <span class="glyphicon glyphicon-cutlery"></span>
+                                <br class="hidden-xs">Menu</a>
+                        </li>
+                        <li>
+                            <a href="indextry.html">
+                                <!--menu-categories link-->
+                                <span class="glyphicon glyphicon-cutlery"></span>
+                                <br class="hidden-xs">Specials</a>
+                        </li>
+                        <li>
+                            <a href="indextry.html">
+                                <!--about link-->
+                                <span class="glyphicon glyphicon-info-sign"></span>
+                                <br class="hidden-xs">About</a>
+                        </li>
+                        <li id="phone" class="hidden-xs">
+                            <a href="tel:8860859618">
+                                <span>8860859618</span></a>
+                            <div>*We Deliver</div>
+                        </li>
+                    </ul>
+                    <!--#nav-list-->
+                </div>
+                <!--.collapse .navbar-collapse-->
+            </div>
+            <!--.container-fluid-->
+        </nav>
+        <!--#header-nav-->
+    </header>
+    
+    <div id="call-btn" class="visible-xs">
+        <a class="btn" href="tel:8860859618">
+            <span class="glyphicon glyphicon-earphone"></span> 8860859618
+        </a>
+    </div>
+    <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
+
+<section>
+    <div class="shopping-cart">
+     <fieldset>
+     <table  >
+              
+                   
+                <thead>
+                    <tr>
+                    <th>Remove</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                    <th>Product</th>
+                    <th>Image</th>
+                    </tr>
+                </thead>
+                    
+                <tbody id="itemtable">
+                   
+                </tbody>
+        </table>
+      </fieldset>
+    </div>
+</section>
+    <button class="btn btn-primary">Checkout</button>
+    <button id="delete" class="btn btn-primary">Delete</button>
+    
+    <footer class="panel-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <section id="hours" class="col-sm-4">
+                    <span>Hours:</span><br> Tues-Sun: 11:15am - 10:00pm<br> Monday Closed
+                    <hr class="visible-xs">
+                </section>
+                <section id="address" class="col-sm-4">
+                    <span>Address:</span><br> xxxxxxxxxx
+                    <br> hhhhhhh
+                    <p>* Free home delivery within 4km, with minimum order of Rs.250</p>
+                    <hr class="visible-xs">
+                </section>
+                <section id="testimonials" class="col-sm-4">
+                    <p>"The best restaurant in its area! That too after visiting many restaurants like this"</p>
+                    <p>"Amazing food! great service! Now a regular customer here :)"</p>
+                </section>
+            </div>
+            <div class="text-center">&copy; Copyright David's restaurant 2017</div>
+        </div>
+    </footer>
+    <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

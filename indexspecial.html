@@ -1,0 +1,143 @@
+<link rel="stylesheet" href="animate.css">
+<div id="menu">
+ <div class="categ"><!--yellow-->
+    <h1 class="animated flip">Chef's Recommendations Menu</h1><!--animate.css style-->
+    <div class="fa fa-shopping-cart" aria-hidden="true"><a href="table.html"><img src="img/basket.png" alt=""></a></div>
+  </div>
+  <ul class="products">
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="imgspecial/grilled%20veal.jpg">
+      <h2>Grilled Veal
+      <hr>
+      $19.95</h2>
+      <span class="descr">marinated and grilled veal served with vegetables and lo mein on the side</span>
+      <button class="button button5 animated flip" item-id="13" product="Grilled-Veal" amount="$19.95" data-src="imgspecial/grilled%20veal.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="imgspecial/happyfamily.jpg">
+      <h2>Happy Family
+      <hr>
+      $20.95</h2>
+      <span class="descr">beef,veal and chicken with mixed vegetables in chef's special sauce </span>
+      <button class="button button5 animated flip" item-id="14" product="Happy-Family" amount="$20.95" data-src="imgspecial/happyfamily.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="imgspecial/vegtempura.jpg">
+      <h2>Vegetable Tempura
+      <hr>
+      $19.95</h2>
+      <span class="descr">assorted vegetables breaded abd fried, served with lo mein on the side</span>
+      <button class="button button5 animated flip" item-id="15" product="Vegetable-Tempura" amount="$19.95" data-src="imgspecial/vegtempura.jpg">Add to Cart</button>
+    </li>
+    <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="imgspecial/pancake.jpg">
+      <h2>Chinese Scallion Pancake Wrap
+      <hr>
+      $21.50</h2>
+      <span  class="descr">with choice of string bean, string bean chicken, mooshu vegetable
+      </span>
+      <button class="button button5 animated flip" item-id="16" product="Chinese-Scallion-Pancake-Wrap" amount="$21.50" data-src="imgspecial/pancake.jpg">Add to Cart</button>
+    </li>
+     <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="imgspecial/combo%20meal.jpg">
+      <h2>Fantasy Combo Meal
+      <hr>
+      $26.95</h2>
+      <span class="descr">
+        Fantasy Meal offers you tasty meal deals,Grab today*
+      </span>
+      <button class="button button5 animated flip" item-id="17" product="Fantasy-Combo-Meal" amount="$26.95" data-src="imgspecial/combo%20meal.jpg">Add to Cart</button>
+    </li>
+     <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+      <img class="item" src="imgspecial/combo.jpg">
+      <h2>Fantasy Mega Combo Meal
+      <hr>
+      $30.95</h2>
+      <span class="descr">Fantasy Meal offers you tasty meal deals, Grab today*</span>
+      <button class="button button5 animated flip" item-id="18" product="Fantasy-Mega-Combo-Meal" amount="$30.95" data-src="imgspecial/combo.jpg">Add to Cart</button>
+    </li>
+  </ul>
+  *Terms and Conditions Apply
+  </div>
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script>
+    $("button").on("click", function(){
+        $(this).closest("li")
+         .find("img")
+         .clone()
+         .addClass("zoom")
+         .appendTo("body");
+        setTimeout(function(){
+         $("zoom").remove();
+        }, 1000);    
+    });
+</script>
+<script >
+bindEvents();
+
+class Item{
+constructor(id,pic,product,amount,quantity){
+this.id=id;
+this.pic=pic;
+this.product = product;
+
+this.amount = amount;
+this.quantity =quantity;
+this.markForDelete = false;
+	
+}
+	toggleDelete(){
+		this.markForDelete = !this.markForDelete;
+	}
+}
+
+const itemOperations = {
+itemList:[],
+	
+addItem(id,pic,product,amount){
+	var itemObject = new Item(id,pic, product, amount);
+	this.itemList.push(itemObject);
+	
+}
+	
+}
+
+function bindEvents() {
+
+	console.log("bindEvents working");
+	
+	var bTags=document.getElementsByTagName('button');
+        
+	
+    for (var i=0;i<bTags.length;i++){
+        bTags[i].addEventListener("click",add);
+    }
+
+}
+
+function saveLocal() {
+	if(window.localStorage){
+		localStorage.myitemslist=JSON.stringify(itemOperations.itemList);
+		//alert("Data Store...");
+	}
+	else{
+		alert("Ur Browser Doesn't Support LocalStorage...");
+	}
+}
+
+function add(event){
+	//tr.classList.toggle("redrow");
+	var id = event.srcElement.getAttribute("item-id");
+	var product = event.srcElement.getAttribute("product");
+	var amount = event.srcElement.getAttribute("amount");
+	var pic= event.srcElement.getAttribute("data-src");
+
+    //alert("data added");
+    itemOperations.addItem(id,pic,product,amount);
+    
+    //saveLocal();
+    saveLocal();
+	//alert("Delete Call.... "+id);
+}
+
+</script>

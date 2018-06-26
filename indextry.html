@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Food Fantasy</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+	<script src="libs/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+	<script src="js/menuctrl.js"></script>
+	<script src="js/specialctrl.js"></script>
+	<script src="js/routes.js"></script>
+   <script src="js/script.js"></script>
+    
+    
+</head>
+
+<body ng-app="restro">
+    <header>
+        <nav id="header-nav" class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a ng-href="#/" class="pull-left visible-md visible-lg">
+                        <div id="logo-img" alt="logo image"></div>
+                    </a>
+                    <div class="navbar-brand">
+                        <a ng-href="#/">
+                            <h1>Food Fantasy</h1>
+                        </a>
+                        <p>
+                            <img src="images/star-k-logo.png" alt="Kosher certification">
+                            <span>THE TRUE FLAVOURS OF INDIA</span>
+                        </p>
+                    </div>
+                    <button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="collapsable-nav" class="collapse navbar-collapse">
+                    <ul id="nav-list" class="nav navbar-nav navbar-right">
+                       <li>
+                           <a ng-href="#/">
+                               <span class="glyphicon glyphicon-home"></span><br class="hidden-xs">Home
+                           </a>
+                       </li>
+                       <li>
+                            <a ng-href="#/menu">
+                                <!--menu-categories link-->
+                                <span class="glyphicon glyphicon-cutlery"></span>
+                                <br class="hidden-xs">Menu</a>
+                        </li>
+                        <li>
+                            <a ng-href="#/specials">
+                                <!--menu-categories link-->
+                                <span class="glyphicon glyphicon-cutlery"></span>
+                                <br class="hidden-xs">Specials</a>
+                        </li>
+<!--
+                        <li>
+                            <a ng-href="#/about">
+                                about link
+                                <span class="glyphicon glyphicon-info-sign"></span>
+                                <br class="hidden-xs">About</a>
+                        </li>
+-->
+                        <li id="phone" class="hidden-xs">
+                            <a href="tel:8860859618">
+                                <span>8860859618</span></a>
+                            <div>*We Deliver</div>
+                        </li>
+                    </ul>
+                    <!--#nav-list-->
+                </div>
+                <!--.collapse .navbar-collapse-->
+            </div>
+            <!--.container-fluid-->
+        </nav>
+        <!--#header-nav-->
+    </header>
+
+    <div id="call-btn" class="visible-xs">
+        <a class="btn" href="tel:8860859618">
+            <span class="glyphicon glyphicon-earphone"></span> 8860859618
+        </a>
+    </div>
+    <div id="xs-deliver" class="text-center visible-xs">* We Deliver</div>
+    <div>
+	<section>
+		<ng-view></ng-view>
+	</section>
+    </div>
+      
+  
+      
+    <footer class="panel-footer">
+        <div class="container-fluid">
+            <div class="row">
+                <section id="hours" class="col-sm-4">
+                    <span>Hours:</span><br> Tues-Sun: 11:15am - 10:00pm<br> Monday Closed
+                    <hr class="visible-xs">
+                </section>
+                <section id="address" class="col-sm-4">
+                    <span>Address:</span><br> xxxxxxxxxx
+                    <br> hhhhhhh
+                    <p>* Free home delivery within 4km, with minimum order of Rs.250</p>
+                    <hr class="visible-xs">
+                </section>
+                <section id="testimonials" class="col-sm-4">
+                    <p>"The best restaurant in its area! That too after visiting many restaurants like this"</p>
+                    <p>"Amazing food! great service! Now a regular customer here :)"</p>
+                </section>
+            </div>
+            <div class="text-center">&copy; Copyright David's restaurant 2017</div>
+        </div>
+    </footer>
+    <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  
+  <script src="js/bootstrap.min.js"></script>
+
+  
+</body>
+
+</html>
